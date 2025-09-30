@@ -4,7 +4,7 @@ GIT_TAG ?= $(shell git describe --tags --abbrev=0 --always | sed -e s/v//g)
 
 # Docker
 DOCKER_REPO_NAME ?= ks6088ts
-DOCKER_IMAGE_NAME ?= template-typescript
+DOCKER_IMAGE_NAME ?= template-nextjs
 DOCKER_COMMAND ?= echo "Hello, World!"
 
 # Tools

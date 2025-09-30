@@ -4,7 +4,7 @@ on:
     tags:
       - "v*"
 env:
-  IMAGE_NAME: template-typescript
+  IMAGE_NAME: template-nextjs
 jobs:
   ghcr:
     runs-on: ubuntu-latest

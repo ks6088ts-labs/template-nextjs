@@ -40,5 +40,5 @@ jobs:
             GIT_REVISION=${{ github.sha }}
             GIT_TAG=${{steps.set_version.outputs.no-dash}}
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/template-typescript:${{steps.set_version.outputs.no-dash}}
-            ${{ secrets.DOCKERHUB_USERNAME }}/template-typescript:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/template-nextjs:${{steps.set_version.outputs.no-dash}}
+            ${{ secrets.DOCKERHUB_USERNAME }}/template-nextjs:latest
