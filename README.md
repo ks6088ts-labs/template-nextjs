@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![test](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/test.yaml?query=branch%3Amain)
+[![docker](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/docker.yaml/badge.svg?branch=main)](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/docker.yaml?query=branch%3Amain)
+[![docker-release](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/docker-release.yaml/badge.svg)](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/docker-release.yaml)
+[![ghcr-release](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/ghcr-release.yaml/badge.svg)](https://github.com/ks6088ts-labs/template-nextjs/actions/workflows/ghcr-release.yaml)
 
-## Getting Started
+# template-nextjs
 
-First, run the development server:
+A GitHub template repository for Next.js with TypeScript
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Prerequisites
+
+- [Node 22.12.0+](https://nodejs.org/en/download)
+- [pnpm](https://pnpm.io/installation)
+- [GNU Make](https://www.gnu.org/software/make/)
+
+## Development instructions
+
+### Local development
+
+Use Makefile to run the project locally.
+
+```shell
+# help
+make
+
+# install dependencies for development
+make install-deps-dev
+
+# run tests
+make test
+
+# build applications
+make build
+
+# run CI tests
+make ci-test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Docker development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+# build docker image
+make docker-build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# run docker container
+make docker-run
 
-## Learn More
+# run CI tests in docker container
+make ci-test-docker
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Docker Hub
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To publish the docker image to Docker Hub, you need to [create access token](https://app.docker.com/settings/personal-access-tokens/create) and set the following secrets in the repository settings.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```shell
+gh secret set DOCKERHUB_USERNAME --body $DOCKERHUB_USERNAME
+gh secret set DOCKERHUB_TOKEN --body $DOCKERHUB_TOKEN
+```
