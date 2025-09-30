@@ -23,8 +23,8 @@ RUN addgroup --system --gid 1001 nodejs \
 COPY --from=builder /usr/src/app/public ./public
 
 # Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
+RUN mkdir .next && \
+    chown nextjs:nodejs .next
 
 # Automatically leverage output traces to reduce image size
 COPY --from=builder --chown=nextjs:nodejs /usr/src/app/.next/standalone ./
