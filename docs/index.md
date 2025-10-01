@@ -2,10 +2,10 @@
 
 ```shell
 # Initialize a new Next.js project
-npx create-next-app@latest --typescript --use-pnpm --tailwind --biome --src-dir --app --turbopack
+npx create-next-app@latest --typescript --use-pnpm --tailwind --biome --src-dir --app --turbopack template-nextjs
 
 # Navigate into the project directory
-cd your-project-name
+cd template-nextjs
 
 # Initialize a new Git repository
 git init
