@@ -9,7 +9,7 @@ FROM node:22.17.0-alpine AS builder
 WORKDIR /usr/src/app
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY . .
-RUN npm install -g pnpm@10.15.1 && pnpm build
+RUN npm install -g pnpm@10.15.1 && pnpm prisma generate && pnpm build
 
 # Production stage
 FROM node:22.17.0-alpine AS runner

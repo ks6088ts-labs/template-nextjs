@@ -25,6 +25,10 @@ install-deps-dev: ## install dependencies for development
 	@which pnpm || npm install -g pnpm
 	pnpm install
 
+.PHONY: generate
+generate: ## generate code
+	pnpm prisma generate
+
 .PHONY: format-check
 format-check: ## format check
 	@echo "Yet to be implemented"
@@ -49,7 +53,7 @@ build: ## build applications
 	pnpm build
 
 .PHONY: ci-test
-ci-test: install-deps-dev format-check lint test build ## run CI test
+ci-test: install-deps-dev generate format-check lint test build ## run CI test
 
 .PHONY: run
 run: ## run applications
@@ -85,3 +89,19 @@ ci-test-docker: install-deps-dev docker-lint docker-build docker-scan docker-run
 .PHONY: update
 update: ## update dependencies
 	pnpm update --latest
+
+# ---
+# Project
+# ---
+
+.PHONY: migrate
+migrate: ## run database migrations
+	npx prisma migrate dev --name init
+
+.PHONY: seed
+seed: ## seed initial data
+	npx tsx ./scripts/seed.ts
+
+.PHONY: studio
+studio: ## open Prisma Studio
+	npx prisma studio
