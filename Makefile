@@ -25,6 +25,10 @@ install-deps-dev: ## install dependencies for development
 	@which pnpm || npm install -g pnpm
 	pnpm install
 
+.PHONY: generate
+generate: ## generate code
+	pnpm prisma generate
+
 .PHONY: format-check
 format-check: ## format check
 	@echo "Yet to be implemented"
@@ -49,7 +53,7 @@ build: ## build applications
 	pnpm build
 
 .PHONY: ci-test
-ci-test: install-deps-dev format-check lint test build ## run CI test
+ci-test: install-deps-dev generate format-check lint test build ## run CI test
 
 .PHONY: run
 run: ## run applications

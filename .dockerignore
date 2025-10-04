@@ -12,3 +12,4 @@ README.md
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+generated
