@@ -3,7 +3,7 @@ import { z } from "zod";
 export const userIdSchema = z.coerce.number().int().positive();
 
 const nameField = z
-  .string({ invalid_type_error: "名前は文字列で指定してください。" })
+  .string({ message: "名前は文字列で指定してください。" })
   .trim()
   .max(255, "名前は255文字以内で入力してください。")
   .transform((value: string) => (value.length === 0 ? null : value))
@@ -12,7 +12,7 @@ const nameField = z
 export const createUserInputSchema = z.object({
   email: z
     .string({
-      invalid_type_error: "メールアドレスは文字列で指定してください。",
+      message: "メールアドレスは文字列で指定してください。",
     })
     .trim()
     .min(1, "メールアドレスは必須です。")
