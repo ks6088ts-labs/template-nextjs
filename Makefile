@@ -85,3 +85,19 @@ ci-test-docker: install-deps-dev docker-lint docker-build docker-scan docker-run
 .PHONY: update
 update: ## update dependencies
 	pnpm update --latest
+
+# ---
+# Project
+# ---
+
+.PHONY: migrate
+migrate: ## run database migrations
+	npx prisma migrate dev --name init
+
+.PHONY: seed
+seed: ## seed initial data
+	npx tsx ./scripts/seed.ts
+
+.PHONY: studio
+studio: ## open Prisma Studio
+	npx prisma studio

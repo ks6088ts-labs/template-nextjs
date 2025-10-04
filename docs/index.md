@@ -14,3 +14,7 @@ git init
 gh repo create ks6088ts-labs/template-nextjs --public --source=. --remote=origin
 git push -u origin main
 ```
+
+## Introduce Prisma
+
+- [Prisma > Quickstart with SQLite](https://www.prisma.io/docs/getting-started/quickstart-sqlite)
