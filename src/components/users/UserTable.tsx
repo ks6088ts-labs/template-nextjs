@@ -1,8 +1,8 @@
 "use client";
 
 import type { User } from "@generated/prisma";
-import { Fragment, useEffect, useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { Fragment, useActionState, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 
 import {
   deleteUserAction,
@@ -56,7 +56,7 @@ const initialUserActionState: UserActionState = {
 };
 
 function EditRow({ user, onClose }: { user: User; onClose: () => void }) {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     updateUserAction,
     initialUserActionState,
   );
@@ -115,7 +115,7 @@ function EditRow({ user, onClose }: { user: User; onClose: () => void }) {
 }
 
 function DeleteUserForm({ userId }: { userId: number }) {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     deleteUserAction,
     initialUserActionState,
   );

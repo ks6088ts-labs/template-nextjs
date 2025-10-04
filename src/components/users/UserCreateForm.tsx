@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState, useEffect, useRef } from "react";
+import { useFormStatus } from "react-dom";
 
 import { createUserAction, type UserActionState } from "@/app/users/actions";
 import { Button } from "@/components/ui/Button";
@@ -30,7 +30,7 @@ const initialUserActionState: UserActionState = {
 };
 
 export function UserCreateForm() {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     createUserAction,
     initialUserActionState,
   );
