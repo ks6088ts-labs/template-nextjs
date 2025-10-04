@@ -18,3 +18,7 @@ git push -u origin main
 ## Introduce Prisma
 
 - [Prisma > Quickstart with SQLite](https://www.prisma.io/docs/getting-started/quickstart-sqlite)
+
+## Introduce Zod
+
+- [Zod](https://zod.dev/)
