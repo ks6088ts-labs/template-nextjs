@@ -12,14 +12,14 @@ export async function getUserById(id: number): Promise<User | null> {
 }
 
 export async function createUser(
-  payload: Prisma.UserCreateInput
+  payload: Prisma.UserCreateInput,
 ): Promise<User> {
   return prisma.user.create({ data: payload });
 }
 
 export async function updateUser(
   id: number,
-  payload: Prisma.UserUpdateInput
+  payload: Prisma.UserUpdateInput,
 ): Promise<User> {
   return prisma.user.update({
     where: { id },

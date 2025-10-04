@@ -14,7 +14,7 @@ export async function GET() {
     console.error(error);
     return NextResponse.json(
       { error: "Failed to fetch users." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
           error: "Invalid request payload.",
           details: parsed.error.flatten().fieldErrors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -41,14 +41,14 @@ export async function POST(request: Request) {
       if (error.code === "P2002") {
         return NextResponse.json(
           { error: "Email is already in use." },
-          { status: 409 }
+          { status: 409 },
         );
       }
     }
     console.error(error);
     return NextResponse.json(
       { error: "Failed to create user." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -25,7 +25,7 @@ function handlePrismaError(error: unknown, defaultMessage: string) {
     if (error.code === "P2002") {
       return NextResponse.json(
         { error: "Email is already in use." },
-        { status: 409 }
+        { status: 409 },
       );
     }
   }
@@ -61,7 +61,7 @@ export async function PUT(request: Request, context: RouteContext) {
           error: "Invalid request payload.",
           details: parsed.error.flatten().fieldErrors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 

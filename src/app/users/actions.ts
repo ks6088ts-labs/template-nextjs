@@ -41,7 +41,7 @@ function handlePrismaError(error: unknown): UserActionState {
 
 export async function createUserAction(
   _prevState: UserActionState,
-  formData: FormData
+  formData: FormData,
 ): Promise<UserActionState> {
   const submission = {
     email: ensureString(formData.get("email")),
@@ -72,7 +72,7 @@ export async function createUserAction(
 
 export async function updateUserAction(
   _prevState: UserActionState,
-  formData: FormData
+  formData: FormData,
 ): Promise<UserActionState> {
   const idResult = userIdSchema.safeParse(formData.get("id"));
   if (!idResult.success) {
@@ -111,7 +111,7 @@ export async function updateUserAction(
 
 export async function deleteUserAction(
   _prevState: UserActionState,
-  formData: FormData
+  formData: FormData,
 ): Promise<UserActionState> {
   const idResult = userIdSchema.safeParse(formData.get("id"));
   if (!idResult.success) {
